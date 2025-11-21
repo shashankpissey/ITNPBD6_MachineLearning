@@ -1,9 +1,10 @@
 
 import pandas as pd
 
-data = pd.read_csv("E:\\Masters\\ML\\Assignment\\wallacecommunications.csv")
+data = pd.read_csv("data/wallacecommunications.csv")
+# drop the month value with 'j' as it can be January, June, July
 data = data[data['last_contact_this_campaign_month'] != 'j']
-# drop ID and Country column as ID is just identifier and country is now all UK
+# drop ID as it is just identifier
 data = data.drop(columns= ['ID'])
 # Replace the incorrect values to correct value
 data['has_tv_package'] = data['has_tv_package'].replace({'n':'no'})
